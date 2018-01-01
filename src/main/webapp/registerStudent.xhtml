@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title> TESTTTTTT </title>
+</h:head>
+
+<h:body>
+
+    <h:form>
+        <p:panelGrid columns="2">
+        <p:outputLabel for="username" value="Username:" style="font-weight:bold" />
+        <p:inputText id="username" value="#{student.st.username}" />
+
+        <p:outputLabel for="first_name" value="First Name:" style="font-weight:bold" />
+        <p:inputText id="first_name" value="#{student.st.firstName}" />
+
+        <p:outputLabel for="last_name" value="Last Name:" style="font-weight:bold" />
+        <p:inputText id="last_name" value="#{student.st.lastName}" />
+
+        <p:outputLabel for="age" value="Age:" style="font-weight:bold" />
+        <p:inputNumber id="age" value="#{student.st.age}" />
+
+        <p:commandButton value="Ajax Submit" id="nonAjax" actionListener="#{student.registerStudent}" update=":dataForm:myData" />
+    </p:panelGrid>
+    </h:form>
+
+
+    <h:form id="dataForm">
+        <h:panelGrid columns="4" cellpadding="5">
+            <p:dataTable var="student" id="myData" value="#{student.studentList}">
+                <p:column headerText="Id">
+                    <h:outputText value="#{student.id}" />
+                </p:column>
+                <p:column headerText="Username">
+                    <h:outputText value="#{student.username}" />
+                </p:column>
+
+                <p:column headerText="First Name">
+                    <h:outputText value="#{student.firstName}" />
+                </p:column>
+
+                <p:column headerText="Last Name">
+                    <h:outputText value="#{student.lastName}" />
+                </p:column>
+
+                <p:column headerText="Age">
+                    <h:outputText value="#{student.age}" />
+                </p:column>
+            </p:dataTable>
+        </h:panelGrid>
+    </h:form>
+</h:body>
+</html>
